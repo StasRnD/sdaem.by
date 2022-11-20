@@ -21,7 +21,9 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
     };
   });
 
-  const [searchValue, setSearchValue] = useState<string>(filters.query);
+  const [searchValue, setSearchValue] = useState<FiltersProps['query']>(
+    filters.query
+  );
 
   const onChange: FiltersProps['onChange'] = (value, filterName) => {
     const url = new URL(document.location.href);
@@ -30,7 +32,7 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
     window.history.pushState(null, '', url.search);
   };
 
-  const submitFilterForm: React.FormEventHandler<HTMLFormElement> = (evt) => {
+  const onSubmitFilterForm: React.FormEventHandler<HTMLFormElement> = (evt) => {
     evt.preventDefault();
     onChange(searchValue, 'query');
   };
@@ -49,7 +51,11 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
 
   return (
     <section className='newsList news__newsList'>
-      <form action='' className='newsList__filter' onSubmit={submitFilterForm}>
+      <form
+        action=''
+        className='newsList__filter'
+        onSubmit={onSubmitFilterForm}
+      >
         <input
           type='text'
           className='newsList__search'
