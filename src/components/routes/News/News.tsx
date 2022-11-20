@@ -1,10 +1,12 @@
-import Search from '../../../images/search.svg';
 import House from '../../../images/house.svg';
-import { NewsItem } from './NewsItem/NewsItem';
+import { NewsList } from './NewsList/NewsList';
 import { useNewsProps } from './hooks';
 
 export const News = () => {
   const { news, error, isLoading } = useNewsProps();
+
+  if (isLoading) return <div>Загрузка</div>;
+  if (error) return <div>Ошибка</div>;
 
   return (
     <main className='news body__news'>
@@ -20,23 +22,8 @@ export const News = () => {
           </div>
           <h2 className='news__title'>Новости</h2>
         </div>
-        <div className='news__fiter'>
-          <form action='' className='news__form'>
-            <input type='text' className='news__filter-input' />
-            <button type='button' className='news__button-filter'></button>
-          </form>
-        </div>
       </section>
-      <section className='newsList'>
-        {news.map((newsItem) => {
-          return <NewsItem key={newsItem.id} data={newsItem} />;
-        })}
-      </section>
-      <section>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-      </section>
+      <NewsList newsList={news} />
     </main>
   );
 };
