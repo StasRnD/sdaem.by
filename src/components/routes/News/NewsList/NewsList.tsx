@@ -62,7 +62,7 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
       {filterNews.map((newsItem: NewsDetails) => {
         return <NewsItem key={newsItem.id} data={newsItem} />;
       })}
-      <Pagination filterNews={filterNews} />
+      <Pagination />
     </section>
   );
 };

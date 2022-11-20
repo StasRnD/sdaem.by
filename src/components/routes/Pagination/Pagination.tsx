@@ -1,11 +1,7 @@
-export const Pagination = ({ filterNews, setFilterNews }: any) => {
-  const onClickButton = () => {
-    setFilterNews((oldFilters: any) => [...oldFilters].slice(0, 4));
-  };
-
+export const Pagination = () => {
   return (
     <div>
-      <button onClick={onClickButton}>1</button>
+      <button>1</button>
     </div>
   );
 };
