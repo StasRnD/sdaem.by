@@ -7,9 +7,13 @@ export const NewsDetails = () => {
     return <div>Loading...</div>;
   }
 
+  if (error) {
+    return <div>ошибка...</div>;
+  }
+
   return (
     <div>
-      <img src={newsDetails.image} />
+      <img src={newsDetails.image} alt='фото новости' />
       <p>{newsDetails.text}</p>
       <p>{newsDetails.title}</p>
     </div>

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { NewsDetails } from '../../../../types/types';
+import { NewsDetails } from '../../../types/types';
 import { useParams } from 'react-router-dom';
 
 export function useNewsDetailsProps() {

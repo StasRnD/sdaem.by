@@ -65,7 +65,7 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
         <button type='submit' className='newsList__button'></button>
       </form>
 
-      {filterNews.map((newsItem: NewsDetails) => {
+      {filterNews.slice(0, 10).map((newsItem: NewsDetails) => {
         return <NewsItem key={newsItem.id} data={newsItem} />;
       })}
       <Pagination />

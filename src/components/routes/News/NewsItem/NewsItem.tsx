@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { NewsDetails } from '../../../../types/types';
 
 export const NewsItem = ({ data }: any) => {
   return (
