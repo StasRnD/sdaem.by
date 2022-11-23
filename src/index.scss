@@ -3,3 +3,7 @@
 @import url(./styles/news.scss);
 @import url(./styles//news-list.scss);
 @import url(./styles/news-item.scss);
+
+.activeButton {
+  background-color: red;
+}
