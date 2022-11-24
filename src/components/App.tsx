@@ -1,23 +1,23 @@
-import './index.scss';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
-import { News } from './components/routes/News/News';
-import { NewsDetails } from './components/routes/NewsDetails/NewsDetails';
-import { Contacts } from './components/routes/Сontacts/Сontacts';
-import { Registration } from './components/routes/Registration/Registration';
-import { ErrorUrl } from './components/routes/ErrorUrl';
-import { Home } from './components/routes/Home';
-import { Catalog } from './components/routes/Catalog';
+import { HeaderComponent } from './Header/HeaderComponent';
+import { Footer } from './Footer/Footer';
+import { NewsComponent } from './routes/News/NewsComponent';
+import { NewsDetails } from './routes/NewsDetails/NewsDetails';
+import { Contacts } from './routes/Сontacts/Сontacts';
+import { Registration } from './routes/Registration/Registration';
+import { ErrorUrl } from './routes/ErrorUrl';
+import { Home } from './routes/Home';
+import { Catalog } from './routes/Catalog';
+import GlobalStyle from './GlobalStyle';
 
 const MainPages = () => {
   return (
     <>
-      <Header />
+      <HeaderComponent />
       <Routes>
         <Route path='' element={<Home />} />
-        <Route path='news' element={<News />} />
+        <Route path='news' element={<NewsComponent />} />
         <Route path='news/:newsId' element={<NewsDetails />} />
         <Route path='catalog' element={<Catalog />} />
         <Route path='contacts' element={<Contacts />} />
@@ -36,6 +36,7 @@ export const App = () => {
         <Route path='/auth' element={<Registration />} />
         <Route path='/registration' element={<Registration />} />
       </Routes>
+      <GlobalStyle />
     </div>
   );
 };

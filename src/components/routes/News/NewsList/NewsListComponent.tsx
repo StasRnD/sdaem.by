@@ -1,5 +1,11 @@
-import { NewsItem } from '../NewsItem/NewsItem';
+import { NewsItemComponent } from '../NewsItem/NewsItemComponent';
 import { Pagination } from '../../Pagination/Pagination';
+import {
+  NewsList,
+  NewsListFilter,
+  NewsListSearch,
+  NewsListButton,
+} from './style';
 import { NewsDetails } from '../../../../types/types';
 import { useMemo, useState } from 'react';
 import set from 'lodash/set';
@@ -13,7 +19,7 @@ interface FiltersProps {
   onChange: (value: string, filterName: string) => void;
 }
 
-export const NewsList = ({ newsList }: newsDetailsProps) => {
+export const NewsListComponent = ({ newsList }: newsDetailsProps) => {
   const url = new URL(document.location.href);
 
   const [filters, setFilters] = useState(() => {
@@ -71,23 +77,14 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
   }, [activePage, filterNews]);
 
   return (
-    <section className='newsList news__newsList'>
-      <form
-        action=''
-        className='newsList__filter'
-        onSubmit={onSubmitFilterForm}
-      >
-        <input
-          type='text'
-          className='newsList__search'
-          value={searchValue}
-          onChange={onChangeFilterInput}
-        />
-        <button type='submit' className='newsList__button'></button>
-      </form>
+    <NewsList>
+      <NewsListFilter onSubmit={onSubmitFilterForm}>
+        <NewsListSearch value={searchValue} onChange={onChangeFilterInput} />
+        <NewsListButton />
+      </NewsListFilter>
 
       {paginatedNews.map((newsItem: NewsDetails) => {
-        return <NewsItem key={newsItem.id} data={newsItem} />;
+        return <NewsItemComponent key={newsItem.id} data={newsItem} />;
       })}
       <Pagination
         pageQuantity={filterNews}
@@ -95,6 +92,6 @@ export const NewsList = ({ newsList }: newsDetailsProps) => {
         onClickButtonPagination={onClickButtonPagination}
         itemsPerPage={itemsPerPage}
       />
-    </section>
+    </NewsList>
   );
 };
