@@ -1,4 +1,5 @@
 import { NewsDetails } from '../../../types/types';
+import { Pagination, PaginationButton } from './style';
 
 type paginationProps = {
   pageQuantity: NewsDetails[];
@@ -7,7 +8,7 @@ type paginationProps = {
   onClickButtonPagination: (page: number) => void;
 };
 
-export const Pagination = ({
+export const PaginationComponent = ({
   pageQuantity,
   activePage,
   onClickButtonPagination,
@@ -19,11 +20,11 @@ export const Pagination = ({
   );
 
   return (
-    <section>
+    <Pagination>
       {pageQuantity.length > itemsPerPage &&
         quantityButtons.map((buttonValue, index) => {
           return (
-            <button
+            <PaginationButton
               key={index}
               onClick={() => {
                 onClickButtonPagination(buttonValue);
@@ -31,9 +32,9 @@ export const Pagination = ({
               className={`${activePage === buttonValue && 'activeButton'}`}
             >
               {buttonValue}
-            </button>
+            </PaginationButton>
           );
         })}
-    </section>
+    </Pagination>
   );
 };

@@ -1,14 +1,7 @@
 import { NewsListComponent } from './NewsList/NewsListComponent';
+import { InfoBlockComponent } from '../../Common/InfoBlock/InfoBlock';
 import { useNewsProps } from './hooks';
-import {
-  News,
-  NewsHeader,
-  NewsInfo,
-  NewsRoad,
-  ImageHouse,
-  NewsRoadText,
-  NewsTitle,
-} from './style';
+import { News, NewsUnderlay, NewsContent } from './style';
 
 export const NewsComponent = () => {
   const { news, error, isLoading } = useNewsProps();
@@ -18,16 +11,12 @@ export const NewsComponent = () => {
 
   return (
     <News>
-      <NewsHeader>
-        <NewsInfo>
-          <NewsRoad>
-            <ImageHouse />
-            <NewsRoadText>Новости</NewsRoadText>
-          </NewsRoad>
-          <NewsTitle>Новости</NewsTitle>
-        </NewsInfo>
-      </NewsHeader>
-      <NewsListComponent newsList={news} />
+      <NewsContent>
+        <InfoBlockComponent homePage={'Новости'} title={'Новости'} />
+        <NewsListComponent newsList={news} />
+      </NewsContent>
+
+      <NewsUnderlay></NewsUnderlay>
     </News>
   );
 };

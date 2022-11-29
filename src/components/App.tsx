@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { HeaderComponent } from './Header/HeaderComponent';
 import { Footer } from './Footer/Footer';
 import { NewsComponent } from './routes/News/NewsComponent';
-import { NewsDetails } from './routes/NewsDetails/NewsDetails';
+import { NewsDetailsComponent } from './routes/NewsDetails/NewsDetailsComponent';
 import { Contacts } from './routes/Сontacts/Сontacts';
 import { Registration } from './routes/Registration/Registration';
 import { ErrorUrl } from './routes/ErrorUrl';
@@ -18,7 +18,7 @@ const MainPages = () => {
       <Routes>
         <Route path='' element={<Home />} />
         <Route path='news' element={<NewsComponent />} />
-        <Route path='news/:newsId' element={<NewsDetails />} />
+        <Route path='news/:newsId' element={<NewsDetailsComponent />} />
         <Route path='catalog' element={<Catalog />} />
         <Route path='contacts' element={<Contacts />} />
         <Route path='*' element={<ErrorUrl />} />

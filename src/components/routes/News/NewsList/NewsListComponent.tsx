@@ -1,5 +1,5 @@
 import { NewsItemComponent } from '../NewsItem/NewsItemComponent';
-import { Pagination } from '../../Pagination/Pagination';
+import { PaginationComponent } from '../../Pagination/PaginationComponent';
 import {
   NewsList,
   NewsListFilter,
@@ -77,21 +77,23 @@ export const NewsListComponent = ({ newsList }: newsDetailsProps) => {
   }, [activePage, filterNews]);
 
   return (
-    <NewsList>
-      <NewsListFilter onSubmit={onSubmitFilterForm}>
-        <NewsListSearch value={searchValue} onChange={onChangeFilterInput} />
-        <NewsListButton />
-      </NewsListFilter>
+    <>
+      <NewsList>
+        <NewsListFilter onSubmit={onSubmitFilterForm}>
+          <NewsListSearch value={searchValue} onChange={onChangeFilterInput} />
+          <NewsListButton />
+        </NewsListFilter>
 
-      {paginatedNews.map((newsItem: NewsDetails) => {
-        return <NewsItemComponent key={newsItem.id} data={newsItem} />;
-      })}
-      <Pagination
+        {paginatedNews.map((newsItem: NewsDetails) => {
+          return <NewsItemComponent key={newsItem.id} data={newsItem} />;
+        })}
+      </NewsList>
+      <PaginationComponent
         pageQuantity={filterNews}
         activePage={activePage}
         onClickButtonPagination={onClickButtonPagination}
         itemsPerPage={itemsPerPage}
       />
-    </NewsList>
+    </>
   );
 };
