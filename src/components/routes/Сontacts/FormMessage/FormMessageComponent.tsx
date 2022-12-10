@@ -6,45 +6,79 @@ import {
   FormMessageUserMessage,
   FormMessageButton,
 } from './style';
+import { useSendUserMessagesProps } from './hooks';
+import { PopupSuccessComponent } from '../PopupSuccess/PopupSuccessComponent';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { ShowPopupProps } from '../СontactsComponent';
 
-export const FormMessageComponent = () => {
+const validationObj = Yup.object({
+  email: Yup.string()
+    .required('Поле обязательно для заполнения')
+    .email('Ожидается email типа ivanov@mail.ru'),
+  name: Yup.string()
+    .required('Поле обязательно для заполнения')
+    .min(2, 'Имя должно быть не менне ем из 2 букв'),
+  text: Yup.string()
+    .min(5, 'Комментарий должен состоять минимум из 5 букв')
+    .required('Поле обязательно для заполнения'),
+});
+
+export const FormMessageComponent = ({ setIsShowPopup }: ShowPopupProps) => {
+  const mutation = useSendUserMessagesProps();
   const formik = useFormik({
     initialValues: {
+      name: '',
+      text: '',
       email: '',
-      password: '',
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 1));
+    onSubmit: (values, { resetForm }) => {
+      mutation.mutate(values);
+      resetForm();
+      setIsShowPopup(true);
     },
 
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .required('Поле обязательно для заполнения')
-        .email('Ожидаемый формат email: Ivan@mail.ru'),
-      password: Yup.string()
-        .min(8, 'Пароль должен содержать не менее 8 символов')
-        .required('Поле обязательно для заполнения'),
-    }),
+    validationSchema: validationObj,
   });
+
   return (
-    <FormMessage noValidate>
-      <FormMessageUserInfo>
+    <>
+      <FormMessage
+        noValidate
+        action='http://localhost:3000/userMessages'
+        onSubmit={formik.handleSubmit}
+      >
+        <FormMessageUserInfo>
+          <label>
+            Ваше имя
+            <FormMessageUserName
+              placeholder='Введите имя'
+              required
+              value={formik.values.name}
+              onChange={formik.handleChange}
+            />
+          </label>
+          <label>
+            Ваша электронная почта
+            <FormMessageUserEmail
+              placeholder='Введите email'
+              required
+              value={formik.values.email}
+              onChange={formik.handleChange}
+            />
+          </label>
+        </FormMessageUserInfo>
         <label>
-          Ваше имя
-          <FormMessageUserName placeholder='Введите имя' required />
+          Ваше сообщение
+          <FormMessageUserMessage
+            placeholder='Сообщение'
+            required
+            value={formik.values.text}
+            onChange={formik.handleChange}
+          />
         </label>
-        <label>
-          Ваша электронная почта
-          <FormMessageUserEmail placeholder='Введите email' required />
-        </label>
-      </FormMessageUserInfo>
-      <label>
-        Ваше сообщение
-        <FormMessageUserMessage placeholder='Сообщение' required />
-      </label>
-      <FormMessageButton>Отправить</FormMessageButton>
-    </FormMessage>
+        <FormMessageButton>Отправить</FormMessageButton>
+      </FormMessage>
+    </>
   );
 };

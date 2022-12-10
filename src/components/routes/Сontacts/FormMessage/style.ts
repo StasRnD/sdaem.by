@@ -62,8 +62,8 @@ export const FormMessageUserEmail = styled.input.attrs({
 
 export const FormMessageUserMessage = styled.textarea.attrs({
   type: 'text',
-  name: 'message',
-  id: 'message',
+  name: 'text',
+  id: 'text',
 })`
   width: 100%;
   resize: none;

@@ -23,7 +23,7 @@ margin: 0;
  
 `;
 
-export const ContactsInformation = styled.main`
+export const ContactsInformation = styled.section`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
