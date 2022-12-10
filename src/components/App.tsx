@@ -5,7 +5,7 @@ import { Footer } from './Footer/Footer';
 import { NewsComponent } from './routes/News/NewsComponent';
 import { NewsDetailsComponent } from './routes/NewsDetails/NewsDetailsComponent';
 import { ContactsComponent } from './routes/Сontacts/СontactsComponent';
-import { Registration } from './routes/Registration/Registration';
+import { RegistrationComponent } from './routes/Registration/RegistrationComponent';
 import { ErrorUrl } from './routes/ErrorUrl';
 import { Home } from './routes/Home';
 import { Catalog } from './routes/Catalog';
@@ -35,7 +35,7 @@ export const App = () => {
       <Routes>
         <Route path='/*' element={<MainPages />} />
         <Route path='/auth' element={<AuthComponent />} />
-        <Route path='/registration' element={<Registration />} />
+        <Route path='/registration' element={<RegistrationComponent />} />
       </Routes>
       <GlobalStyle />
     </div>

@@ -42,7 +42,7 @@ export const Auth = styled.main`
 `;
 
 export const AuthContent = styled.section`
-  width: 30%;
+  width: 100%;
   max-width: 406px;
   box-sizing: border-box;
   padding: 50px;

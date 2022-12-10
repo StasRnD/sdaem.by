@@ -25,7 +25,7 @@ export const AuthComponent = () => {
           <FormButtonComponent value='Войти' />
         </AuthForm>
         <AuthFormCreateUser>
-          Еще нет аккаунта? <Link to='/register'>Создайте аккаунт</Link>
+          Еще нет аккаунта? <Link to='/registration'>Создайте аккаунт</Link>
         </AuthFormCreateUser>
       </AuthContent>
     </Auth>
