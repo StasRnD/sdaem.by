@@ -6,7 +6,7 @@ margin-top: 15px;
 background: #F8F8F8;
 border-radius: 30px;
 border: none;
-padding: 15px 20px 15px 55px;
+padding: 15px 15px 15px 55px;
 outline: none;
 font-weight: 500;
 font-size: 14px;

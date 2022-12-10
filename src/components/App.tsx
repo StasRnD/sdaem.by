@@ -9,6 +9,7 @@ import { Registration } from './routes/Registration/Registration';
 import { ErrorUrl } from './routes/ErrorUrl';
 import { Home } from './routes/Home';
 import { Catalog } from './routes/Catalog';
+import { AuthComponent } from './routes/Auth/AuthComponent';
 import GlobalStyle from './GlobalStyle';
 
 const MainPages = () => {
@@ -33,7 +34,7 @@ export const App = () => {
     <div className='App'>
       <Routes>
         <Route path='/*' element={<MainPages />} />
-        <Route path='/auth' element={<Registration />} />
+        <Route path='/auth' element={<AuthComponent />} />
         <Route path='/registration' element={<Registration />} />
       </Routes>
       <GlobalStyle />
