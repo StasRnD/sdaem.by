@@ -10,7 +10,7 @@ In the project directory, you can run:
 Start the server.\
 Open http://localhost:3001 to view it in the browser.
 
-paht:\
+necessarily add path:\
 /news - list of all news.\
 /users - registered users.\
 /userMessages - messages from users
