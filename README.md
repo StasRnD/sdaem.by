@@ -8,12 +8,12 @@ In the project directory, you can run:
 
 ### `npm run server`
 Start the server.\
-Open http://localhost:3001 to view it in the browser. .\
+Open http://localhost:3001 to view it in the browser.
 
-paht:.\
+paht:\
 /news - list of all news.\
 /users - registered users.\
-/userMessages - messages from users.\
+/userMessages - messages from users
 
 ### `npm start`
 
