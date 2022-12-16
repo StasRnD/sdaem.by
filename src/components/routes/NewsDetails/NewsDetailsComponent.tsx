@@ -15,8 +15,8 @@ import {
 import { InfoBlockComponent } from '../../Common/InfoBlock/InfoBlock';
 import { ItemDateComponent } from '../../Common/ItemDate/ItemDateComponent';
 import { SocialNetworkComponent } from '../../Common/SocialNetwork/SocialNetworkComponent';
-
 import { NewsItemComponent } from '../News/NewsItem/NewsItemComponent';
+import { scrollToTop } from '../../Common/Scroll';
 
 export const NewsDetailsComponent = () => {
   const { newsDetails, error, isLoading } = useNewsDetailsProps();
@@ -30,6 +30,7 @@ export const NewsDetailsComponent = () => {
     return <div>ошибка...</div>;
   }
 
+  scrollToTop();
   return (
     <NewsDetails>
       <NewsDetailsUnderLay />

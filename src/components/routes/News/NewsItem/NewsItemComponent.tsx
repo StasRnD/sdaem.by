@@ -11,7 +11,9 @@ import {
 import { ItemDateComponent } from '../../../Common/ItemDate/ItemDateComponent';
 import { NewsDetails } from '../../../../types/types';
 
-type NewsItemProps = { data: NewsDetails };
+type NewsItemProps = {
+  data: NewsDetails;
+};
 
 export const NewsItemComponent = ({ data }: NewsItemProps) => {
   return (
@@ -23,7 +25,9 @@ export const NewsItemComponent = ({ data }: NewsItemProps) => {
         <NewsItemInfo>
           <ItemDateComponent date={data.date} color={`#8291A3`} />
           <NewsItemButton className='news-item__butoon'>
-            <NewsItemButtonLink to={`${data.id}`}>Читать</NewsItemButtonLink>
+            <NewsItemButtonLink to={`/news/${data.id}`}>
+              Читать
+            </NewsItemButtonLink>
           </NewsItemButton>
         </NewsItemInfo>
       </NewsItemDescription>

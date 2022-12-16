@@ -40,7 +40,7 @@ export const NewsDetailsUnderLay = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 280px;
+  height: 25%;
   background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
   opacity: 0.1;
   z-index: 0;

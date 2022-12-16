@@ -8,6 +8,7 @@ import {
 } from './style';
 import { NewsDetails } from '../../../../types/types';
 import { useMemo, useState } from 'react';
+
 import set from 'lodash/set';
 
 type newsDetailsProps = {
@@ -18,6 +19,8 @@ interface FiltersProps {
   query: string;
   onChange: (value: string, filterName: string) => void;
 }
+
+const itemsPerPage = 9;
 
 export const NewsListComponent = ({ newsList }: newsDetailsProps) => {
   const url = new URL(document.location.href);
@@ -33,8 +36,6 @@ export const NewsListComponent = ({ newsList }: newsDetailsProps) => {
   });
 
   const [searchValue, setSearchValue] = useState(filters.query);
-
-  const itemsPerPage = 9;
 
   const onChange: FiltersProps['onChange'] = (value, filterName) => {
     setFilters((oldFilters) => set({ ...oldFilters }, filterName, value));

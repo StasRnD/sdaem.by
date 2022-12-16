@@ -6,6 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run server`
+Start the server
+Open (http://localhost:3001) to view it in the browser.
+paht:
+/news - list of all news
+/users - registered users
+/userMessages - messages from users
+
 ### `npm start`
 
 Runs the app in the development mode.\

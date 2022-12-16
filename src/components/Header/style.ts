@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { ReactComponent as MarkerMap } from '../../images/marker.svg';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/logo.svg';
+import UserFoto from '../../images/userFoto.png';
+import ArrowButton from '../../images/arrow.svg';
 
 export const backgroundColor = `
 background-color: #f8f8f8
@@ -162,4 +164,71 @@ export const HeaderAddItem = styled(Link)`
   text-decoration: none;
   font-weight: 700;
   line-height: 17px;
+  &:hover {
+    background: #5c35f9;
+  }
+`;
+
+export const HeaderLoggedUser = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+`;
+
+export const HeaderLoggedUserImage = styled.img.attrs({
+  alt: 'Ваша фотография',
+  src: `${UserFoto}`,
+})`
+  display: block;
+`;
+
+export const HeaderLoggedUserName = styled.span`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+  text-transform: capitalize;
+`;
+
+export const HeaderLoggedButton = styled.button<{ active: boolean }>`
+  background-image: url(${ArrowButton});
+  background-color: transparent;
+  border: none;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  transition: transform, 0.2s;
+  transform: ${(props) => (props.active ? 'rotate(180deg)' : '')};
+`;
+
+const opacityActivePanel = `
+   opacity: 0;
+   display: none;
+
+`;
+
+export const HeaderUserActivePanel = styled.div<{ active: boolean }>`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  top: 40px;
+  right: 0;
+  ${backgroundColor};
+  opacity: 1;
+  transition: opacity, 0.2s;
+  ${(props) => (!props.active ? `${opacityActivePanel}` : '')}
+  padding: 20px;
+`;
+
+export const HeaderExitProfile = styled.button`
+  border: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #1e2123;
+  background-color: #ffe285;
 `;

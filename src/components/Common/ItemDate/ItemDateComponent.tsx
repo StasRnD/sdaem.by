@@ -1,4 +1,3 @@
-import { StringChain } from 'lodash';
 import { ItemDate } from './style';
 
 export const ItemDateComponent = ({ date, color }: any) => {

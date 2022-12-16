@@ -5,7 +5,7 @@ import { NewsDetails } from '../../../types/types';
 export function useNewsProps() {
   const { isLoading, error, data } = useQuery<NewsDetails[]>('news', () => {
     return axios
-      .get('http://localhost:3000/news/')
+      .get('http://localhost:3001/news/')
       .then((response) => response.data);
   });
 

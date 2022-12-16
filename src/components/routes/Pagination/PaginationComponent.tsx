@@ -1,5 +1,6 @@
 import { NewsDetails } from '../../../types/types';
 import { Pagination, PaginationButton } from './style';
+import { scrollToTop } from '../../Common/Scroll';
 
 type paginationProps = {
   pageQuantity: NewsDetails[];
@@ -27,6 +28,7 @@ export const PaginationComponent = ({
             <PaginationButton
               key={index}
               onClick={() => {
+                scrollToTop();
                 onClickButtonPagination(buttonValue);
               }}
               className={`${activePage === buttonValue && 'activeButton'}`}

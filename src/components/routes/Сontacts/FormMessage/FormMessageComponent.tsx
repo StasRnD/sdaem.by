@@ -7,10 +7,9 @@ import {
   FormMessageButton,
 } from './style';
 import { useSendUserMessagesProps } from './hooks';
-import { PopupSuccessComponent } from '../PopupSuccess/PopupSuccessComponent';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { ShowPopupProps } from '../СontactsComponent';
+import { ShowPopupProps } from '../../../Common/PopupSuccess/PopupSuccessComponent';
 
 const validationObj = Yup.object({
   email: Yup.string()
@@ -45,7 +44,7 @@ export const FormMessageComponent = ({ setIsShowPopup }: ShowPopupProps) => {
     <>
       <FormMessage
         noValidate
-        action='http://localhost:3000/userMessages'
+        action='http://localhost:3001/userMessages'
         onSubmit={formik.handleSubmit}
       >
         <FormMessageUserInfo>

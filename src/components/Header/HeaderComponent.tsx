@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { navPagesItems, navServicesItems } from '../../constans';
+import { navPagesItems, navServicesItems } from './constans';
+import { Auth } from '../routes/Auth/style';
 
 import {
   Header,
@@ -13,9 +15,21 @@ import {
   HeaderAddItem,
   HeaderNavServices,
   MarkerIconHeaderBottom,
+  HeaderLoggedUser,
+  HeaderLoggedUserImage,
+  HeaderLoggedUserName,
+  HeaderLoggedButton,
+  HeaderUserActivePanel,
+  HeaderExitProfile,
 } from './style';
 
 export const HeaderComponent = () => {
+  const [authUser, setAuthUser] = useState(() => {
+    return JSON.parse(localStorage.getItem('authUser') || 'null');
+  });
+
+  const [showUserPanel, setShowUserPanel] = useState(false);
+
   return (
     <Header>
       <HeaderTop>
@@ -23,16 +37,15 @@ export const HeaderComponent = () => {
           <HeaderNavPages>
             {navPagesItems.map((link, index) => {
               return (
-                <NavLink
-                  key={index}
-                  to={link.redirect}
-                  className={({ isActive }) => (isActive ? 'current' : '')}
-                >
-                  <li>
+                <li key={index}>
+                  <NavLink
+                    to={link.redirect}
+                    className={({ isActive }) => (isActive ? 'current' : '')}
+                  >
                     {link.image && <MarkerIconHeaderTop />}
                     {link.text}
-                  </li>
-                </NavLink>
+                  </NavLink>
+                </li>
               );
             })}
           </HeaderNavPages>
@@ -41,9 +54,30 @@ export const HeaderComponent = () => {
           <HeaderCustomPanelLink to='/izbrannoe' authcolor=''>
             Закладки
           </HeaderCustomPanelLink>
-          <HeaderCustomPanelLink to='/auth' authcolor='true'>
-            Вход и регистарция
-          </HeaderCustomPanelLink>
+          {authUser ? (
+            <HeaderLoggedUser>
+              <HeaderLoggedUserImage />
+              <HeaderLoggedUserName>{authUser.user.login}</HeaderLoggedUserName>
+              <HeaderLoggedButton
+                active={showUserPanel}
+                onClick={() => setShowUserPanel(!showUserPanel)}
+              />
+              <HeaderUserActivePanel active={showUserPanel}>
+                <HeaderExitProfile
+                  onClick={() => {
+                    localStorage.removeItem('authUser');
+                    setAuthUser(null);
+                  }}
+                >
+                  Выйти
+                </HeaderExitProfile>
+              </HeaderUserActivePanel>
+            </HeaderLoggedUser>
+          ) : (
+            <HeaderCustomPanelLink to='/auth' authcolor='true'>
+              Вход и регистарция
+            </HeaderCustomPanelLink>
+          )}
         </HeaderCustomPanel>
       </HeaderTop>
       <HeaderBottom>
@@ -52,16 +86,15 @@ export const HeaderComponent = () => {
           <HeaderNavServices>
             {navServicesItems.map((link, index) => {
               return (
-                <NavLink
-                  key={index}
-                  to={link.redirect}
-                  className={({ isActive }) => (isActive ? 'current' : '')}
-                >
-                  <li>
+                <li key={index}>
+                  <NavLink
+                    to={link.redirect}
+                    className={({ isActive }) => (isActive ? 'current' : '')}
+                  >
                     {link.text}
                     <MarkerIconHeaderBottom />
-                  </li>
-                </NavLink>
+                  </NavLink>
+                </li>
               );
             })}
           </HeaderNavServices>

@@ -11,7 +11,7 @@ export function useNewsDetailsProps() {
     'newsDetails',
     () => {
       return axios
-        .get(`http://localhost:3000/news/${newsId}`)
+        .get(`http://localhost:3001/news/${newsId}`)
         .then((response) => response.data);
     }
   );
@@ -28,7 +28,7 @@ export function useRandomNewsProps() {
     'randomNews',
     () => {
       return axios
-        .get(`http://localhost:3000/news`)
+        .get(`http://localhost:3001/news`)
         .then((response) => response.data);
     }
   );

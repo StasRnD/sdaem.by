@@ -81,9 +81,9 @@ export const AuthForm = styled.form.attrs({
 `;
 
 export const AuthFormName = styled.input.attrs({
-  name: 'name',
+  name: 'email',
   type: 'text',
-  id: 'name',
+  id: 'email',
 })`
   ${FormInput}
 `;

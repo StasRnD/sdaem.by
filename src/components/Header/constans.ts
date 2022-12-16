@@ -1,5 +1,11 @@
-import { NavPagesItem } from './types/types';
-import markerMap from './images/marker.svg';
+import markerMap from '../../images/marker.svg';
+
+export interface NavPagesItem {
+  text: string;
+  image?: string;
+  imageAlt?: string;
+  redirect: string;
+}
 
 export const navPagesItems: NavPagesItem[] = [
   {

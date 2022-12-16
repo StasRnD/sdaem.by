@@ -11,11 +11,10 @@ export const NewsItem = styled.div`
   display: flex;
   flex-direction: column;
   width: calc(100% / 3 - 20px);
-  max-width: 406px;
   border-radius: 10px;
   box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
   padding-bottom: 25px;
-  background: white;
+  background-color: white;
 `;
 
 export const NewsItemImage = styled.img.attrs({

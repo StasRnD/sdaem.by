@@ -78,9 +78,9 @@ export const RegistrationForm = styled.form.attrs({
 `;
 
 export const RegistrationFormName = styled.input.attrs({
-  name: 'name',
+  name: 'login',
   type: 'text',
-  id: 'name',
+  id: 'login',
 })`
   ${FormInput}
 `;
@@ -101,10 +101,10 @@ export const RegistrationFormPassword = styled.input.attrs({
   ${FormInput}
 `;
 
-export const RegistrationFormPasswordRepeat = styled.input.attrs({
-  name: 'password',
+export const RegistrationFormConfrimPassword = styled.input.attrs({
+  name: 'confirmPassword',
   type: 'password',
-  id: 'password-repeat',
+  id: 'confirmPassword',
 })`
   ${FormInput}
 `;
