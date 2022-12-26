@@ -6,7 +6,7 @@ import { NewsDetailsComponent } from './routes/NewsDetails/NewsDetailsComponent'
 import { ContactsComponent } from './routes/Сontacts/СontactsComponent';
 import { RegistrationComponent } from './routes/Registration/RegistrationComponent';
 import { ErrorUrl } from './routes/ErrorUrl';
-import { Home } from './routes/Home';
+import { HomeComponent } from './routes/Home/HomeComponent';
 import { Catalog } from './routes/Catalog';
 import { AuthComponent } from './routes/Auth/AuthComponent';
 import GlobalStyle from './GlobalStyle';
@@ -16,7 +16,7 @@ const MainPages = () => {
     <>
       <HeaderComponent />
       <Routes>
-        <Route path='' element={<Home />} />
+        <Route path='' element={<HomeComponent />} />
         <Route path='news' element={<NewsComponent />} />
         <Route path='news/:newsId' element={<NewsDetailsComponent />} />
         <Route path='catalog' element={<Catalog />} />
